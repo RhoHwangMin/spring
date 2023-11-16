@@ -54,35 +54,49 @@ public class AuthorMapperTests {
 	 * System.out.println("total.........." + total); }
 	 */
 
+	 /* 작가 상세 페이지 */
+	  
+	  @Test public void authorGetDetailTest() {
+	  
+	  int authorId = 30;
+	  
+	  AuthorVO author = mapper.authorGetDetail(authorId);
+	  
+	  System.out.println("author......." + author);
+	  
+	  }
+
 	/*
-	 * 작가 상세 페이지
+	 * 작가 정보 수정
 	 * 
-	 * @Test public void authorGetDetailTest() {
+	 * @Test public void authorModifyTest() {
 	 * 
-	 * int authorId = 30;
+	 * AuthorVO author = new AuthorVO();
 	 * 
-	 * AuthorVO author = mapper.authorGetDetail(authorId);
+	 * author.setAuthorId(1); System.out.println("수정 전...................." +
+	 * mapper.authorGetDetail(author.getAuthorId()));
 	 * 
-	 * System.out.println("author......." + author);
+	 * author.setAuthorName("수정"); author.setNationId("01");
+	 * author.setAuthorIntro("소개 수정 하였습니다.");
+	 * 
+	 * mapper.authorModify(author); System.out.println("수정 후...................." +
+	 * mapper.authorGetDetail(author.getAuthorId()));
 	 * 
 	 * }
 	 */
-	
-	/* 작가 정보 수정 */
-	@Test
-	public void authorModifyTest() {
-		
-		AuthorVO author = new AuthorVO();
-				
-		author.setAuthorId(1);
-		System.out.println("수정 전...................." + mapper.authorGetDetail(author.getAuthorId()));
-		
-		author.setAuthorName("수정");
-		author.setNationId("01");
-		author.setAuthorIntro("소개 수정 하였습니다.");
-		
-		mapper.authorModify(author);
-		System.out.println("수정 후...................." + mapper.authorGetDetail(author.getAuthorId()));
-		
-	}
+
+	/*
+	 * 작가 정보 삭제
+	 * 
+	 * @Test public void authorDeleteTest() {
+	 * 
+	 * 
+	 * int authorId = 13;
+	 * 
+	 * int result = mapper.authorDelete(authorId);
+	 * 
+	 * if(result == 1) { System.out.println("삭제 성공"); }
+	 * 
+	 * }
+	 */
 }

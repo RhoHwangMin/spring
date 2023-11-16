@@ -82,6 +82,7 @@
 				<div class="btn_section">
 					<button id="cancelBtn" class="btn">취소</button>
 					<button id="modifyBtn" class="btn modify_btn">수 정</button>
+					<button id="deleteBtn" class="btn delete_btn">삭 제</button>
 				</div>
 			</form>
 		</div>
@@ -145,6 +146,16 @@ $("#modifyBtn").on("click", function(e){
 		return false;
 	}
 	
+});
+
+/* 삭제 버튼 */
+$("#deleteBtn").on("click", function(e){
+	e.preventDefault();
+	moveForm.find("input").remove();
+	moveForm.append('<input type="hidden" name="authorId" value="${authorInfo.authorId}">');
+	moveForm.attr("action", "/admin/authorDelete");
+	moveForm.attr("method", "post");
+	moveForm.submit();
 });
 
 </script>
